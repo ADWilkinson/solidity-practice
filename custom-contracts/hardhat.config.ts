@@ -6,7 +6,7 @@ import "@nomicfoundation/hardhat-chai-matchers";
 import "@typechain/hardhat";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.24",
+  solidity: "0.8.24"
 };
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {

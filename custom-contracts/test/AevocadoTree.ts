@@ -11,7 +11,7 @@ describe("AevocadoTree", function () {
     const MAX_SUPPLY = hre.ethers.parseEther("1000000"); // 1 million AEVOCADO
 
     const aevocadoTreeModule = buildModule("AevocadoTreeModule", (m) => {
-      const mockAEVO = m.contract("MockERC20", ["AEVO Token", "AEVO"]);
+      const mockAEVO = m.contract("MockERC20", ["AEVO Token", "AEVO", 18]);
       const aevocadoTree = m.contract("AevocadoTree", [mockAEVO, EXCHANGE_RATIO, MAX_SUPPLY]);
 
       return { mockAEVO, aevocadoTree };
