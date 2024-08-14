@@ -1,4 +1,4 @@
-import { HardhatUserConfig, task } from "hardhat/config";
+import { HardhatUserConfig, task, vars } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox-viem";
 import "@nomicfoundation/hardhat-ignition";
 import "@nomicfoundation/hardhat-ethers";
@@ -10,13 +10,13 @@ const config: HardhatUserConfig = {
   networks: {
     base: {
       url: "https://mainnet.base.org",
-      accounts: [process.env.PRIVATE_KEY || ""],
+      accounts: [vars.get("PRIVATE_KEY") || ""],
       chainId: 8453,
     },
   },
   etherscan: {
     apiKey: {
-      base: process.env.BASESCAN_API_KEY || "",
+      base: vars.get("BASESCAN_API_KEY") || "",
     },
     customChains: [
       {
