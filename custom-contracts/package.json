@@ -3,7 +3,8 @@
   "scripts": {
     "typechain": "npx hardhat typechain",
     "test": "npx hardhat test",
-    "compile": "npx hardhat compile"
+    "compile": "npx hardhat compile",
+    "deploy-vault": "npx hardhat run scripts/deploy-trade-vault.ts --network base"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.7",

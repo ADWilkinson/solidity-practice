@@ -6,7 +6,29 @@ import "@nomicfoundation/hardhat-chai-matchers";
 import "@typechain/hardhat";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.24"
+  solidity: "0.8.24",
+  networks: {
+    base: {
+      url: "https://mainnet.base.org",
+      accounts: [process.env.PRIVATE_KEY || ""],
+      chainId: 8453,
+    },
+  },
+  etherscan: {
+    apiKey: {
+      base: process.env.BASESCAN_API_KEY || "",
+    },
+    customChains: [
+      {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org",
+        },
+      },
+    ],
+  },
 };
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
