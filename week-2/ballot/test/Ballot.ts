@@ -77,7 +77,6 @@ describe("Ballot", async () => {
   });
 
   describe("when the voter interacts with the vote function in the contract", async () => {
-    // TODO
     it("should register the vote", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       await giveAccountVotingRights(ballotContract, otherAccount);
@@ -90,7 +89,6 @@ describe("Ballot", async () => {
   });
 
   describe("when the voter interacts with the delegate function in the contract", async () => {
-    // TODO
     it("should transfer voting power", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await giveAccountVotingRights(ballotContract, otherAccount);
@@ -101,7 +99,6 @@ describe("Ballot", async () => {
   });
 
   describe("when an account other than the chairperson interacts with the giveRightToVote function in the contract", async () => {
-    // TODO
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await ballotContract.read.chairperson();
@@ -112,7 +109,6 @@ describe("Ballot", async () => {
   });
 
   describe("when an account without right to vote interacts with the vote function in the contract", async () => {
-    // TODO
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       expect(ballotContract.write.vote([0n], { account: otherAccount.account.address })).to.be.rejectedWith(
@@ -122,7 +118,6 @@ describe("Ballot", async () => {
   });
 
   describe("when an account without right to vote interacts with the delegate function in the contract", async () => {
-    // TODO
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await ballotContract.read.chairperson();
@@ -133,7 +128,6 @@ describe("Ballot", async () => {
   });
 
   describe("when someone interacts with the winningProposal function before any votes are cast", async () => {
-    // TODO
     it("should return 0", async () => {
       const { ballotContract } = await loadFixture(deployContract);
       const winningProposal = await ballotContract.read.winningProposal();
@@ -142,7 +136,6 @@ describe("Ballot", async () => {
   });
 
   describe("when someone interacts with the winningProposal function after one vote is cast for the first proposal", async () => {
-    // TODO
     it("should return 0", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       await giveAccountVotingRights(ballotContract, otherAccount);
@@ -153,7 +146,6 @@ describe("Ballot", async () => {
   });
 
   describe("when someone interacts with the winnerName function before any votes are cast", async () => {
-    // TODO
     it("should return name of proposal 0", async () => {
       const { ballotContract } = await loadFixture(deployContract);
       const winningProposal = await ballotContract.read.winnerName();
@@ -163,7 +155,6 @@ describe("Ballot", async () => {
   });
 
   describe("when someone interacts with the winnerName function after one vote is cast for the first proposal", async () => {
-    // TODO
     it("should return name of proposal 0", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       await giveAccountVotingRights(ballotContract, otherAccount);
