@@ -8,7 +8,7 @@
     "clean": "npx hardhat clean",
     "node": "npx hardhat node",
     "deploy-ballot": "npx hardhat run ./scripts/deployHardhat.ts --network sepolia",
-    "deploy-ballot-viem": "npx ts-node --files ./scripts/DeployViem.ts"
+    "deploy-ballot-viem": "npx ts-node --files ./scripts/deployViem.ts"
   },
   "author": "",
   "license": "ISC",
