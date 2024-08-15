@@ -6,7 +6,9 @@
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
     "clean": "npx hardhat clean",
-    "node": "npx hardhat node"
+    "node": "npx hardhat node",
+    "deploy-ballot": "npx hardhat run ./scripts/deployHardhat.ts --network sepolia",
+    "deploy-ballot-viem": "npx ts-node --files ./scripts/DeployViem.ts"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +16,8 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
     "hardhat": "^2.22.8"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
