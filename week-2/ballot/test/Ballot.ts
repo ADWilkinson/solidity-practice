@@ -42,6 +42,7 @@ describe("Ballot", async () => {
       const chairperson = await ballotContract.read.chairperson();
       expect(deployer.account.address).to.equal(chairperson.toLowerCase());
     });
+    
     it("sets the voting weight for the chairperson as 1", async () => {
       const { ballotContract } = await loadFixture(deployContract);
       const chairperson = await ballotContract.read.chairperson();
@@ -62,7 +63,7 @@ describe("Ballot", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await giveAccountVotingRights(ballotContract, otherAccount);
       await ballotContract.write.vote([0n], { account: otherAccount.account.address });
-      expect(
+      await expect(
         ballotContract.write.giveRightToVote([otherAccount.account.address], { account: chairperson })
       ).to.be.rejectedWith("The voter already voted.");
     });
@@ -71,7 +72,7 @@ describe("Ballot", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await giveAccountVotingRights(ballotContract, otherAccount);
       const voter = await ballotContract.read.voters([otherAccount.account.address]);
-      expect(ballotContract.write.giveRightToVote([otherAccount.account.address], { account: chairperson })).to.be
+      await expect(ballotContract.write.giveRightToVote([otherAccount.account.address], { account: chairperson })).to.be
         .rejected;
     });
   });
@@ -102,7 +103,7 @@ describe("Ballot", async () => {
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await ballotContract.read.chairperson();
-      expect(
+      await expect(
         ballotContract.write.giveRightToVote([chairperson], { account: otherAccount.account.address })
       ).to.be.rejectedWith("Only chairperson can give right to vote.");
     });
@@ -111,8 +112,8 @@ describe("Ballot", async () => {
   describe("when an account without right to vote interacts with the vote function in the contract", async () => {
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
-      expect(ballotContract.write.vote([0n], { account: otherAccount.account.address })).to.be.rejectedWith(
-        "Has no right to vote."
+      await expect(ballotContract.write.vote([0n], { account: otherAccount.account.address })).to.be.rejectedWith(
+        "Has no right to vote"
       );
     });
   });
@@ -121,7 +122,7 @@ describe("Ballot", async () => {
     it("should revert", async () => {
       const { otherAccount, ballotContract } = await loadFixture(deployContract);
       const chairperson = await ballotContract.read.chairperson();
-      expect(
+      await expect(
         ballotContract.write.delegate([chairperson], { account: otherAccount.account.address })
       ).to.be.rejectedWith("You have no right to vote");
     });
