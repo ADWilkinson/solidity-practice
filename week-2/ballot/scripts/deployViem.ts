@@ -3,6 +3,7 @@ import { formatEther, createPublicClient, http, createWalletClient, toHex, hexTo
 import { privateKeyToAccount } from "viem/accounts";
 import { sepolia } from "viem/chains";
 import { abi, bytecode } from "../artifacts/contracts/Ballot.sol/Ballot.json";
+require("dotenv").config();
 
 const providerApiKey = process.env.ALCHEMY_API_KEY || "";
 const deployerPrivateKey = process.env.PRIVATE_KEY || "";
@@ -11,7 +12,6 @@ async function main() {
   let proposals = process.argv.slice(2);
   console.log(proposals);
   if (!proposals || proposals.length < 1) throw "No proposals provided";
-  console.log(proposals);
 
   console.log("Getting deployer from private key");
   const account = privateKeyToAccount(`0x${deployerPrivateKey}`);
