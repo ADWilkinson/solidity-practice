@@ -1,4 +1,3 @@
-import { vars } from "hardhat/config";
 import { formatEther, createPublicClient, http, createWalletClient, toHex, hexToString } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { sepolia } from "viem/chains";

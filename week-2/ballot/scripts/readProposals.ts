@@ -1,6 +1,12 @@
+/**
+ *  Script that reads the current proposals in the ballot contract
+ * @Author Andrew Wilkinson
+ * @run npx ts-node --files ./scripts/castVote.ts '{ballotAddress}'
+ */
+
 import { createPublicClient, http, hexToString } from "viem";
 import { sepolia } from "viem/chains";
-import { abi  } from "../artifacts/contracts/Ballot.sol/Ballot.json";
+import { abi } from "../artifacts/contracts/Ballot.sol/Ballot.json";
 require("dotenv").config();
 
 const providerApiKey = process.env.ALCHEMY_API_KEY || "";
@@ -9,8 +15,6 @@ async function main() {
   let ballotContractAddress = process.argv.slice(2).pop();
   console.log(ballotContractAddress);
   if (!ballotContractAddress || ballotContractAddress.length < 1) throw "No contract provided";
-
-  console.log("a", providerApiKey);
 
   const publicClient = createPublicClient({
     chain: sepolia,

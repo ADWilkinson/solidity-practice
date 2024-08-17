@@ -9,7 +9,14 @@
     "node": "npx hardhat node",
     "deploy-ballot": "npx hardhat run ./scripts/deployHardhat.ts --network sepolia",
     "deploy-ballot-viem": "npx ts-node --files ./scripts/deployViem.ts",
-    "read-proposals": "npx ts-node --files ./scripts/readProposals.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'"
+    "read-proposals": "npx ts-node --files ./scripts/readProposals.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'",
+    "read-voters": "npx ts-node --files ./scripts/readVoters.ts '0x30B0D5758c79645Eb925825E1Ee8A2c448812F37' '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'",
+    "read-chairperson": "npx ts-node --files ./scripts/readChairperson.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'",
+    "read-winner-name": "npx ts-node --files ./scripts/readWinnerName.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'",
+    "read-winning-proposal": "npx ts-node --files ./scripts/readWinningProposal.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E'",
+    "cast-vote": "npx ts-node --files ./scripts/castVote.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E' 1",
+    "give-voting-rights": "npx ts-node --files ./scripts/giveRightToVote.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E' '0x59BF1bBd4f0EaD5704865F52c906EB588B7b7f7d'",
+    "delegate": "npx ts-node --files ./scripts/delegate.ts '0x36CE6412d063e157cFb6F95C93d5940eaCAc708E' '0x30B0D5758c79645Eb925825E1Ee8A2c448812F37'"
   },
   "author": "",
   "license": "ISC",
