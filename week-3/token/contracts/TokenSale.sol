@@ -22,4 +22,13 @@ contract TokenSale is Ownable {
         paymentToken = _paymentToken;
         nftContract = _nftContract;
     }
+
+    function buyTokens() external payable {
+      paymentToken.mint(msg.sender, msg.value * ratio);
+    }
+
+    function returnTokens(uint256 _amount) external payable {
+      paymentToken.burnFrom(msg.sender, _amount);
+      payable(msg.sender).transfer(_amount / ratio);
+    }
 }
