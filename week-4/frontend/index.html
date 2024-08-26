@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>The last block in Ethereum blockchain was</p>
+  <p id="block-number"></p>
+  <script>
+    var url =
+      "https://api.etherscan.io/api?module=proxy&action=eth_blockNumber";
+    var request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.send();
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+        var response = JSON.parse(request.responseText);
+        var blockNumber = parseInt(response.result, 16);
+        document.getElementById("block-number").innerHTML = blockNumber;
+      }
+    };
+  </script>
+</body>
+</html>
