@@ -1,7 +1,6 @@
 {
   "name": "hardhat-project",
   "scripts": {
-    "typechain": "npx hardhat typechain",
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy-vault": "npx hardhat run scripts/deploy-trade-vault.ts --network base"
@@ -15,7 +14,6 @@
   },
   "dependencies": {
     "@chainlink/contracts": "^1.2.0",
-    "@openzeppelin/contracts": "^5.0.2",
-    "@typechain/hardhat": "^9.1.0"
+    "@openzeppelin/contracts": "^5.0.2"
   }
 }

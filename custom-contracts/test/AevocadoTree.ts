@@ -18,7 +18,7 @@
 //     });
 
 //     const deploymentResult = await hre.ignition.deploy(aevocadoTreeModule);
-//     const mockAEVOAddress = await deploymentResult.mockAEVO.address;
+//     const mockAEVOAddress = await deploymen/tResult.mockAEVO.address;
 //     const aevocadoTreeAddress = await deploymentResult.aevocadoTree.address;
 
 //     const aevoToken = await hre.ethers.getContractAt("MockERC20", mockAEVOAddress);
