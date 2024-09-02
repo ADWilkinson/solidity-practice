@@ -22,7 +22,7 @@ describe("Testing Overflow operations", async () => {
     it("increments correctly", async () => {
       const tx = await testContract.increment(SAFE_INCREMENT);
       await tx.wait();
-      expect(await testContract.counter()).to.equal(SAFE_INCREMENT * 2);
+      expect(await testContract.counter()).to.equal(SAFE_INCREMENT * 2n);
     });
   });
 
