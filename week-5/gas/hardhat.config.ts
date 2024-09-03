@@ -1,5 +1,6 @@
 import { task, vars, type HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+// import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-toolbox-viem";
 
 const config: HardhatUserConfig = {
   solidity: {
