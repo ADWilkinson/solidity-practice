@@ -55,7 +55,7 @@ async function main() {
     console.log(
       `So far it has sorted ${sortedWords} words. Currently at position ${savedIndex}, where the current loop found ${swaps} words out of place `
     );
-    completed = await ballotContract.read.sorted();
+    completed = (await ballotContract.read.sortedWords()) === BigInt(WORD_COUNT);
     console.log(`The sorting process has${completed ? " " : " not "}been completed`);
     if (completed) {
       const props = [];
